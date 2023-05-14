@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/640535490.svg)](https://zenodo.org/badge/latestdoi/640535490)
+
 ## Analysis of global emissions and natural disasters
 
 ## Description
@@ -71,5 +73,3 @@ However, the [input data](res/) needs to be cited according to the valid sources
 
 ## Project status
 The project will probably not be maintained after 14.05.2023. If you want to become the maintainer or owner of this project, please contact me: jakub.kopec(at)student.tuwien.ac.at.
-
-[![DOI](https://zenodo.org/badge/640535490.svg)](https://zenodo.org/badge/latestdoi/640535490)
