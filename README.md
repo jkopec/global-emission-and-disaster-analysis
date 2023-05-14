@@ -65,9 +65,9 @@ I am open to contributions. There are no specific requirements you have to fulfi
 This project is created and maintained by [Jakub Kopec](https://orcid.org/0009-0006-8549-5031). The input data used for this project under [res/](res/) come from [Global Carbon Atlas](http://doi.org/10.17616/R3434K) and [EM-DAT](http://doi.org/10.17616/R3QQ1X).
 
 ## License
-The [source code](src/) and [ouput](out/) of this project is licenced with the MIT license.
+The [source code](src/) of this project is licenced with the [MIT license](/LICENSE). The [ouput](out/) is licensed according to the [CC0 1.0 license](out/LICENSE).
 
-However, the [input data](res/) needs to be cited according to the valid sources and used only according to the license agreements of those sources!
+However, the [input data](res/) needs to be cited according to the valid sources and used only according to the license agreements of those sources! Please check before using!
 
 ## Project status
 The project will probably not be maintained after 14.05.2023. If you want to become the maintainer or owner of this project, please contact me: jakub.kopec(at)student.tuwien.ac.at.
