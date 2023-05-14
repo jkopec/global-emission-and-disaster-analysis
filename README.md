@@ -1,92 +1,73 @@
-# Carbon Emission Analysis
-
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.com/data-stewardship/carbon-emission-analysis.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/data-stewardship/carbon-emission-analysis/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
+## Analysis of global emissions and natural disasters
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+The aim of this work is to analyze the interaction between global CO2 emissions and natural disasters from 1960 to 2021. 
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+For this purpose, two different datasets are used as input data. The information on CO2 emissions for each country over the years comes from the Global Carbon Atlas. The information on natural disasters and their region over the years comes from EM-DAT, a global database of natural and technological disasters, although only the former is considered in this work. 
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+These input datasets will be filtered and combined to create a new dataset that will provide a holistic view of the situation and illustrate the relationship between CO2 emissions and natural disasters.
+
+## Results / Output
+
+- CSV file containing data about global CO2 emissions in Mt and number of natural disasters per year
+  - Link: [CSV](out/worldwide_CO2_emissions_and_natural_disasters_1960_to_2021.csv)
+- PDF file containing a plot visualizing the CSV-Data
+  - Link: [PDF](out/worldwide_CO2_emissions_and_natural_disasters_1960_to_2021.pdf)
+
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+In order to use this repository, the following requirements need to be fulfilled.
+### Requirements
+- clone this repository
+- install python for your platform >=3.10
+- install all python modules mentioned in [src/requirements.txt](src/requirements.txt)
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+To recreate the results / output data, simply run the [src/plot.py] script after you fulfilled all requirements of the [Installation](#installation) section.
+
+```bash
+python src/plot.py
+```
+
+The output data can then be found in the [out/](out/) folder.
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+If you have questions/suggestions about the source code in this project, feel free to create an Issue and I will answer it as soon as possible.
 
+If you have questions about the input data I would like to kindly guide you to one of the following sources:
+
+- Global Carbon Atlas
+  - DOI: http://doi.org/10.17616/R3434K
+  - URL: http://www.globalcarbonatlas.org/en/CO2-emissions
+  - Last accessed: 2023-05-09 
+- EM-DAT
+  - DOI: http://doi.org/10.17616/R3QQ1X
+  - URL: https://public.emdat.be/data (registration necessary)
+  - Last accessed: 2023-05-14
+
+If you think that the data I used in [res/](res/) is somehow not correct, please also create an Issue.
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+This project deals only very superficially with this topic. The input data offer much more possibilities for analysis, but due to time constraints they could not be considered so far. 
+
+In the future, for example, it could be analyzed how the number of fatalities or the financial damages caused by natural disasters have behaved over the years in comparison to global CO2 emissions. 
+
+It might be interesting to have a more detailed analysis at country level, showing which countries are the biggest victims of natural disasters and whether this correlates with the CO2 emissions of these countries.
+
+On the technical side of things, it would be nice to have an automation which downloads the input data from the respective sources and prepares it so that the headers and footers are removed so that the python script can be executed right away. However this might get tedious because EM-DAT requires user authentication in order to download data.
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+I am open to contributions. There are no specific requirements you have to fulfill as long as the data you are providing is cited and comes from a valid source and the code in this project has no compile or runtime errors, is commented and formatted according to a particular standard for the programming language in use.
 
 ## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+This project is created and maintained by [Jakub Kopec](https://orcid.org/0009-0006-8549-5031). The input data used for this project under [res/](res/) come from [Global Carbon Atlas](http://doi.org/10.17616/R3434K) and [EM-DAT](http://doi.org/10.17616/R3QQ1X).
 
 ## License
-For open source projects, say how it is licensed.
+The [source code](src/) and [ouput](out/) of this project is licenced with the MIT license.
+
+However, the [input data](res/) needs to be cited according to the valid sources and used only according to the license agreements of those sources!
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+The project will probably not be maintained after 14.05.2023. If you want to become the maintainer or owner of this project, please contact me: jakub.kopec(at)student.tuwien.ac.at.
